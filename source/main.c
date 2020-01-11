@@ -28,27 +28,25 @@ int main(void) {
         tmpA0 = PINA & 0x01;
         remain = 0x04;
         if(tmpA3 == 0x08) {
-            remain = remain-0x01;
+            remain--;
             tmpA3 = 0x00;
         }
         if(tmpA2 == 0x04) {
-            remain = remain-0x01;
+            remain--;
             tmpA2 = 0x00;
         }
         if(tmpA1 == 0x02) {
-            remain = remain-0x01;
+            remain--;
             tmpA1 = 0x00;
         }
         if(tmpA0 == 0x01) {
-            remain = remain-0x01;
+            remain--;
             tmpA0 = 0x00;
         }
-        if(!remain) {
-            PORTC = 0x00080;
-        }
-        else {
-            PORTC = 0x00 + remain;
-        }
+
+        tmpC = (tmpC & 0x00) | remain;
+        if(remain == 0x00) (tmpC & 0x0F) | 0x80;
+        PORTC = tmpC;
     }    
 
     return 1;
