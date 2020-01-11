@@ -43,8 +43,12 @@ int main(void) {
             remain = remain-0x01;
             tmpA0 = 0x00;
         }
-        if(!remain) PORTC = 0x00080;
-        else PORTC = 0x00 + remain;
+        if(!remain) {
+            PORTC = 0x00080;
+        }
+        else {
+            PORTC = 0x00 + remain;
+        }
     }    
 
     return 1;
