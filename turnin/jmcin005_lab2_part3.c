@@ -1,8 +1,9 @@
 /*	Author: jmcin005
- *  Partner(s) Name: 
- *	Lab Section:
- *	Assignment: Lab #  Exercise #
- *	Exercise Description: [optional - include for your own benefit]
+ *  Partner(s) Name: n/a
+ *	Lab Section: 022
+ *	Assignment: Lab 2  Exercise 3
+ *	Exercise Description: Extend the previous program to still write the available spaces number,
+                          but only to PC3..PC0, and to set PC7 to 1 if the lot is full.
  *
  *	I acknowledge all content contained herein, excluding template or example
  *	code, is my own original work.
@@ -26,8 +27,8 @@ int main(void) {
         tmpA2 = PINA & 0x04;
         tmpA1 = PINA & 0x02;
         tmpA0 = PINA & 0x01;
-        remain = 4;
-        if(tmpA3 == 0x08) {
+        remain = 4;             // Initialize Variables
+        if(tmpA3 == 0x08) {  
             remain--;
             tmpA3 = 0x00;
         }
