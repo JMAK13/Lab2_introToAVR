@@ -29,6 +29,7 @@ int main(void) {
         tmpA2 = PINA & 0x04;
         tmpA1 = PINA & 0x02;
         tmpA0 = PINA & 0x01;
+        remain = 0x04;
         if(tmpA3 == 0x08) {
             remain = remain-0x01;
             tmpA3 = 0x00;
@@ -46,7 +47,6 @@ int main(void) {
             tmpA0 = 0x00;
         }
         PORTC = remain;
-        remain = 0x04;
     }    
 
     return 1;
