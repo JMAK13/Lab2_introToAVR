@@ -19,12 +19,14 @@ int main(void) {
     unsigned char tmpA2 = 0x00;
     unsigned char tmpA1 = 0x00;
     unsigned char tmpA0 = 0x00;
-    unsigned char remain;
+    unsigned char tmpC = 0x00;
+    unsigned char remain = 0x04;
     while(1) {
         tmpA3 = PINA & 0x08;     // Read input
         tmpA2 = PINA & 0x04;
         tmpA1 = PINA & 0x02;
         tmpA0 = PINA & 0x01;
+        remain = 0x04;
         if(tmpA3 == 0x08) {
             remain = remain-0x01;
             tmpA3 = 0x00;
@@ -41,8 +43,8 @@ int main(void) {
             remain = remain-0x01;
             tmpA0 = 0x00;
         }
-        PORTC = remain;
-        remain = 0x04;
+        if(!remain) PORTC = 0x00080;
+        else PORTC = 0x00 + remain;
     }    
 
     return 1;
