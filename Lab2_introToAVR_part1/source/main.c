@@ -19,6 +19,7 @@ int main(void) {
     unsigned char tmpB = 0x00;
     while(1) {
         tmpA = PINA & 0x03;     // Read input
+        tmpB = 0x00;
         if(tmpA == 0x01) {
             tmpB = (tmpB & 0xFE) | tmpA;
         } else {

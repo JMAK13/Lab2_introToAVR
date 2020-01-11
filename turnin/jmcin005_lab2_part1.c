@@ -1,11 +1,8 @@
 /*	Author: jmcin005
- *  Partner(s) Name: n/a
- *	Lab Section: 022
- *	Assignment: Lab 2  Exercise 1
- *	Exercise Description: Garage open at night-- A garage door sensor connects to PA0 (1 means door open),
-                          and a light sensor connects to PA1 (1 means light is sensed). Write a program
-                          that illuminates an LED connected to PB0 (1 means illuminate) if the garage door
-                          is open at night.
+ *  Partner(s) Name: 
+ *	Lab Section:
+ *	Assignment: Lab #  Exercise #
+ *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
  *	code, is my own original work.
@@ -22,6 +19,7 @@ int main(void) {
     unsigned char tmpB = 0x00;
     while(1) {
         tmpA = PINA & 0x03;     // Read input
+        tmpB = 0x00;
         if(tmpA == 0x01) {
             tmpB = (tmpB & 0xFE) | tmpA;
         } else {
