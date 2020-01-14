@@ -1,7 +1,3 @@
-# University of California, Riverside
-# CS120B Makefile
-MMCU=atmega1284
-FREQ=8000000
 
 PATHB=build/
 PATHO=$(PATHB)objects/
@@ -15,7 +11,7 @@ OBJS=$(patsubst $(PATHS)%,$(PATHO)%,$(SOURCES:.c=.o))
 
 CLEAN=rm -rf
 # Simulator
-SIMAVRDIR=/usr/csshare/pkgs/simavr
+SIMAVRDIR=SET YOUR SIMAVR DIRECTORY HERE
 SIMAVR=simavr
 
 # Compiler
@@ -92,7 +88,7 @@ $(PATHB)main.hex: $(PATHO)main.elf
 	@$(OBJCOPY) $(OBJFLAGS) $< $@
 
 $(PATHO)main.elf: $(OBJS)
-	@$(AVR) $(DEBUGFLAGS) $(SIMFLAGS) $(FLAGS) $(INCLUDES) -o $@ $<
+	@$(AVR) $(DEBUGFLAGS) $(SIMFLAGS) $(FLAGS) $(INCLUDES) -o $@ $^
 
 $(PATHO)%.o: $(PATHS)%.c
 	@$(AVR) $(DEBUGFLAGS) $(SIMFLAGS) $(FLAGS) $(INCLUDES) -c -o $@ $<
